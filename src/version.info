@@ -1,0 +1,80 @@
+# Thong tin Version
+# Ghi lai ten dich vu, phien ban hien tai vao cac the <Service>
+# Trong the note lai cac phien ban nang cap, nang cap tu yeu cau nao, nguyen nhan nang cap,...
+# Nang cap do yeu cau KH                        => nang phien ban tu 1.0 => 1.1...
+# Nang cap do sua loi, ko co yeu cau cu the     => nang phien ban tu 1.0 => 1.0.1...
+# Nang cap thay doi lon ve nghiep vu, fw        => nang phien ban tu 1.0 => 2.0...
+
+<Framework>
+    Bo sung cau hinh column_extend: ten cac column co them ngoai cac column mac dinh
+    # Column default MO_HIS: 
+    # MO_HIS_ID,MSISDN,SUB_ID,PRODUCT_CODE,SUB_TYPE,COMMAND,PARAM,CHANNEL,RECEIVE_TIME,ACTION_TYPE,PROCESS_TIME,ERR_CODE,ERR_OCS,FEE,NODE_NAME,CLUSTER_NAME
+    # column_extend: cac column co them trong bang MO_HIS, ngan cach boi dau ','
+
+    SourceCode: 
+    - Su dung ham MoRecord.put(key, value, insert) de set 1 gia tri moi (tru cac gia tri da su dung), 
+        insert=true neu su dung tham so khi insertMO_HIS, insert=false neu tham so chi su dung de check
+    /**
+     * 
+     * @param key
+     * @param obj
+     * @param insert: tham so co luu vao MO_HIS hay khong
+     */
+    public void put(String key, Object obj, boolean insert) {
+    }
+
+    - Dung ham MoRecord.get de lay gia tri truyen vao(ngoai cac tham so da co san)
+    public Object get(String key) {
+    }
+
+    - Bo sung cau hinh duong dan den thu muc config (../etc) neu co thay doi trong file service.conf
+        -Dcom.viettel.vas.config.path=../etc
+</Framework>
+
+
+Tiển khai thị trường Peru các dịch vụ:
+- CallMeBack
+- Hotcharge
+- Interchange
+
+<CallMeBack>
+    <version>1.0</version>
+    <note>
+        - Version 1.0: Gộp code các dịch vụ VAS, sử dụng lib CallmebackUtils v1.0
+    </note>
+</CallMeBack>
+
+<Hotcharge>
+    <version>1.0</version>
+    <note>
+        - Version 1.0: Gộp code các dịch vụ VAS, sử dụng lib HotChargeUtils v1.0
+    </note>
+</Hotcharge>
+
+<Interchange>
+    <version>1.0</version>
+    <note>
+        - Version 1.0: Gộp code các dịch vụ VAS, sử dụng lib InterchangeUtils v1.0
+    </note>
+</Interchange>
+
+<ResetZone>
+    <version>1.0</version>
+    <note>
+        - Version 1.0: Gộp code các dịch vụ VAS, sử dụng lib ResetZoneUtils v1.0
+    </note>
+</ResetZone>
+
+<Roaming>
+    <version>1.0</version>
+    <note>
+        - Version 1.0: Gộp code các dịch vụ VAS, sử dụng lib RoamingUtils v1.0
+    </note>
+</Roaming>
+
+<TdOnOff>
+    <version>1.0</version>
+    <note>
+        - Version 1.0: Gộp code các dịch vụ VAS, sử dụng lib TdOnOffUtils v1.0
+    </note>
+</TdOnOff>
